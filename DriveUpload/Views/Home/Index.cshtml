@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" , style = "margin-top:50px" }))
+{
+        <div class="form-group">
+            <label for="file">Upload file on drive:</label>
+            <input type="file" name="file" id="file" />
+            <span class="field-validation-error" id="spanfile"></span>
+        </div>
+         <input type="submit" class="btn btn-success" id="btnSubmit" value="Upload File" />
+
+}
+
+@ViewBag.Success
+
+@section scripts
+{
+<script>
+
+    $(document).ready(function () {
+
+        //get file size
+        function GetFileSize(fileid) {
+            try {
+                var fileSize = 0;
+                //for IE
+                if (navigator.userAgent.match(/msie/i) || navigator.userAgent.match(/trident/i)) {
+                    //before making an object of ActiveXObject, 
+                    //please make sure ActiveX is enabled in your IE browser
+                    var objFSO = new ActiveXObject("Scripting.FileSystemObject"); var filePath = $("#" + fileid)[0].value;
+                    var objFile = objFSO.getFile(filePath);
+                    var fileSize = objFile.size; //size in kb
+                    fileSize = fileSize / 1048576; //size in mb 
+                }
+                //for FF, Safari, Opeara and Others
+                else {
+                    fileSize = $("#" + fileid)[0].files[0].size //size in kb
+                    fileSize = fileSize / 1048576; //size in mb 
+                }
+                return fileSize;
+            }
+            catch (e) {
+                alert("Error is :" + e);
+            }
+        }
+
+        function getNameFromPath(strFilepath) {
+            var objRE = new RegExp(/([^\/\\]+)$/);
+            var strName = objRE.exec(strFilepath);
+
+            if (strName == null) {
+                return null;
+            }
+            else {
+                return strName[0];
+            }
+        }
+
+        $('body').on("click", "#btnSubmit", function () {
+            if ($('#file').val() == "") {
+                $("#spanfile").html("Please upload file");
+                return false;
+            }
+            else {
+                return checkfile();
+            }
+        });
+
+        function checkfile() {
+            var file = getNameFromPath($("#file").val());
+            if (file != null) {
+                var extension = file.substr((file.lastIndexOf('.') + 1));
+                //alert(extension);
+
+                if (extension == 'pdf') flag = true;
+
+                else flag = false;
+            }
+            if (flag == false) {
+                $("#spanfile").text("You can upload only pdf extension file");
+                return false;
+            }
+            else {
+                var size = GetFileSize('file');
+                if (size > 3) {
+                    $("#spanfile").text("You can upload file up to 3 MB");
+                    return false;
+                }
+                else {
+                    $("#spanfile").text("");
+                }
+            }
+
+        }
+
+    }
+    )
+
+</script>
+
+}

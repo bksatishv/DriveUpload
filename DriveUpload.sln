@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveUpload", "DriveUpload\DriveUpload.csproj", "{03D49BAA-BB9E-4380-91C8-6C97D2C794B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{2AC4D80A-D93A-4AC8-AD67-BB58F8D4BBCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03D49BAA-BB9E-4380-91C8-6C97D2C794B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D49BAA-BB9E-4380-91C8-6C97D2C794B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D49BAA-BB9E-4380-91C8-6C97D2C794B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D49BAA-BB9E-4380-91C8-6C97D2C794B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AC4D80A-D93A-4AC8-AD67-BB58F8D4BBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AC4D80A-D93A-4AC8-AD67-BB58F8D4BBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AC4D80A-D93A-4AC8-AD67-BB58F8D4BBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AC4D80A-D93A-4AC8-AD67-BB58F8D4BBCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC74F03E-ED2D-45D4-A5E4-9A89C37A3869}
+	EndGlobalSection
+EndGlobal
